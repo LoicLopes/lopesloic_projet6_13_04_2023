@@ -1,12 +1,8 @@
-## Contexte
-
-Construire une API en utilisant nodejs dans le cadre du parcours ...
-
 ## Comment installer le projet
 
-Lancer la commande npm install
+1 - Lancer la commande npm install 
 
-lancer la commande nodemon server
+2 - Lancer la commande nodemon server
 
 
 ## DOTENV
