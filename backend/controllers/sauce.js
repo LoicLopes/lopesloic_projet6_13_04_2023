@@ -14,13 +14,9 @@ exports.getOneSauce = (req, res, next) => {
 };
 
 exports.createSauce = (req, res, next) => {
-    console.log('je suis dans create sauces');
     const sauceObject = JSON.parse(req.body.sauce);
     delete sauceObject._id;
     delete sauceObject._userId; 
-
-    console.log(sauceObject);
-    console.log('j/ai parse la sauce');
     const sauce = new Sauce({
         ...sauceObject,
         userId: req.auth.userId,
@@ -55,6 +51,7 @@ exports.modifySauce = (req, res, next) => {
         res.status(500).json({ error });
       });
   };
+
 exports.deleteSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
       .then((sauce) => {
@@ -73,6 +70,7 @@ exports.deleteSauce = (req, res, next) => {
         res.status(500).json({ error });
       });
   };
+  
 exports.likeSauce = (req, res, next) => {
     const like = req.body.like;
     switch (like) {

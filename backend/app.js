@@ -11,15 +11,14 @@ let user = process.env.DB_USER;
 let password = process.env.DB_PASSWORD;
 let cluster = process.env.DB_CLUSTER;
 let dbname = process.env.DB_NAME;
-console.log(user)
-console.log(password)
-console.log(cluster)
-console.log(dbname)
 
 
-let db = 'mongodb+srv://lopesloic64:bayonne@sauce.uxuadp3.mongodb.net/sauce?retryWrites=true&w=majority'
-// db = 'mongodb+srv://'lopesloic64':'bayonne'@'sauce.txezxlg.mongodb.net'/'thing'?retryWrites=true&w=majority'
-//let db = 'mongodb+srv://'+ user +':'+ password +'@'+ cluster +'/'+ dbname +'?retryWrites=true&w=majority'
+
+
+let db = 'mongodb+srv://'+ user +':'+ password +'@'+ cluster +'/'+ dbname +'?retryWrites=true&w=majority'
+
+
+
 mongoose.connect(db,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -39,8 +38,6 @@ app.use((req, res, next) => {
 
   next();
 });
-
-
 
 app.use('/api/auth', userRoutes);
 app.use('/api/sauces', sauceRoutes);
