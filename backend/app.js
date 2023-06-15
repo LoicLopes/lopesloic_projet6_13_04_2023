@@ -12,19 +12,12 @@ let password = process.env.DB_PASSWORD;
 let cluster = process.env.DB_CLUSTER;
 let dbname = process.env.DB_NAME;
 
-
-
-
 let db = 'mongodb+srv://'+ user +':'+ password +'@'+ cluster +'/'+ dbname +'?retryWrites=true&w=majority'
-
-
-
 mongoose.connect(db,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie!'))                                         
   .catch((e) => console.log(e));
-
 
 app.use(express.json());
 
@@ -42,5 +35,6 @@ app.use((req, res, next) => {
 app.use('/api/auth', userRoutes);
 app.use('/api/sauces', sauceRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
+
 
 module.exports = app;
