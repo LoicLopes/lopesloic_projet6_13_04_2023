@@ -79,7 +79,6 @@ exports.likeSauce = (req, res, next) => {
         case 1:
             Sauce.findOne ({ _id: req.params.id }) 
                 .then ((sauce)=>{
-                    console.log("jesuis la 1")
                     if(sauce.usersLiked.includes(req.body.userId)){
                     res.status(401).json({ message : "Déja liké"});
                     }else{
@@ -97,7 +96,6 @@ exports.likeSauce = (req, res, next) => {
         case -1: 
         Sauce.findOne ({ _id: req.params.id }) 
             .then ((sauce)=>{
-                console.log("je suis la 2 ");
                     if(sauce.usersDisliked.includes(req.body.userId)){
                     res.status(402).json({ message : "Déja disliké"});
                     }else{
@@ -117,7 +115,6 @@ exports.likeSauce = (req, res, next) => {
         case 0: 
             Sauce.findOne({ _id: req.params.id })
                 .then((sauce) => {
-                    console.log("je suis la 3 ");
                     if (sauce.usersLiked.includes(req.body.userId)) {
                         Sauce.updateOne(
                             { _id: req.params.id },
