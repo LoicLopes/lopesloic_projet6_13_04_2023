@@ -7,6 +7,7 @@ const path = require('path');
 const userRoutes =  require ('./routes/user');
 const sauceRoutes = require ('./routes/sauce');
 
+
 let user = process.env.DB_USER;
 let password = process.env.DB_PASSWORD;
 let cluster = process.env.DB_CLUSTER;
@@ -39,8 +40,10 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.use('/api/auth', userRoutes);
 app.use('/api/sauces', sauceRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
+
 
 module.exports = app;
