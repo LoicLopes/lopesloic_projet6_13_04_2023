@@ -13,19 +13,12 @@ let password = process.env.DB_PASSWORD;
 let cluster = process.env.DB_CLUSTER;
 let dbname = process.env.DB_NAME;
 
-
-
-
 let db = 'mongodb+srv://'+ user +':'+ password +'@'+ cluster +'/'+ dbname +'?retryWrites=true&w=majority'
-
-
-
 mongoose.connect(db,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie!'))                                         
   .catch((e) => console.log(e));
-
 
 app.use(express.json());
 
